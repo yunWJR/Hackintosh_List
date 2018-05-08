@@ -19,16 +19,21 @@ i78700k-efi for Hackintosh
 * 安全启动模式 关闭
 
 # 3. Clover信息
-clover：r4392
+clover：r4452
 ## 正常功能：
 * CPU 变频正常
 * BCM94352Z 正常
-* 声卡-AppleALC原生驱动
+* 声卡-realtekALC.kext驱动
 * USB正常
 
 ## 待解决：
 * 双屏输出
 
 # 更新记录
+2018-05-08
+1、change SMBIOS to iMac18.1 for fix HD630 in 10.13.4
+2、update clove
+3、update kext
+
 2018-02.08
 初始版本
