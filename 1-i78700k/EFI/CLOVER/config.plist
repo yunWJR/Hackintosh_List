@@ -20,6 +20,8 @@
 		</array>
 		<key>#smartUPS</key>
 		<false/>
+		<key>AutoMerge</key>
+		<false/>
 		<key>DSDT</key>
 		<dict>
 			<key>#DropOEM_DSM</key>
@@ -170,11 +172,13 @@
 			<key>Fixes</key>
 			<dict>
 				<key>AddDTGP</key>
-				<true/>
+				<false/>
 				<key>FixDarwin</key>
-				<true/>
+				<false/>
 				<key>FixDisplay</key>
-				<true/>
+				<false/>
+				<key>FixSBUS</key>
+				<false/>
 				<key>FixShutdown</key>
 				<false/>
 				<key>FixUSB</key>
@@ -308,12 +312,42 @@
 					WEhDXw==
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change GFX0 to IGPU</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					R0ZYMA==
+					</data>
+					<key>Replace</key>
+					<data>
+					SUdQVQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change MEI to IMEI</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					TUVJXw==
+					</data>
+					<key>Replace</key>
+					<data>
+					SU1FSQ==
+					</data>
+				</dict>
 			</array>
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
+		<key>FixHeaders</key>
+		<false/>
 		<key>HaltEnabler</key>
-		<true/>
+		<false/>
 		<key>SSDT</key>
 		<dict>
 			<key>#C3Latency</key>
@@ -351,11 +385,11 @@
 				<key>PStates</key>
 				<false/>
 				<key>PluginType</key>
-				<false/>
+				<true/>
 			</dict>
-			<key>PluginType</key>
-			<string>1</string>
 		</dict>
+		<key>smartUPS</key>
+		<false/>
 	</dict>
 	<key>Boot</key>
 	<dict>
@@ -368,15 +402,15 @@
 		<key>#XMPDetection</key>
 		<string>-1</string>
 		<key>Arguments</key>
-		<string>dart=0 nv_disable=1 -disablegfxfirmware</string>
+		<string>dart=0 kext-dev-mode=1 -disablegfxfirmware</string>
 		<key>Debug</key>
 		<false/>
-		<key>DefaultLoader</key>
-		<string>boot.efi</string>
 		<key>DefaultVolume</key>
-		<string>LastBootedVolume</string>
+		<string>mac</string>
+		<key>NeverHibernate</key>
+		<true/>
 		<key>Timeout</key>
-		<integer>3</integer>
+		<integer>4</integer>
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
@@ -403,9 +437,9 @@
 		<key>#UseARTFrequency</key>
 		<true/>
 		<key>HWPEnable</key>
-		<false/>
+		<true/>
 		<key>UseARTFrequency</key>
-		<false/>
+		<true/>
 	</dict>
 	<key>Devices</key>
 	<dict>
@@ -457,8 +491,6 @@
 			<string>0x431214e4</string>
 			<key>#XHCI</key>
 			<string>0x0</string>
-			<key>IntelGFX</key>
-			<string>0x059128086</string>
 		</dict>
 		<key>USB</key>
 		<dict>
@@ -467,10 +499,10 @@
 			<key>FixOwnership</key>
 			<true/>
 			<key>Inject</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>UseIntelHDMI</key>
-		<false/>
+		<true/>
 	</dict>
 	<key>GUI</key>
 	<dict>
@@ -585,6 +617,10 @@
 		</dict>
 		<key>#TextOnly</key>
 		<false/>
+		<key>Hide</key>
+		<array>
+			<string>Preboot</string>
+		</array>
 		<key>Mouse</key>
 		<dict>
 			<key>Enabled</key>
@@ -656,8 +692,6 @@
 			<key>NVidia</key>
 			<false/>
 		</dict>
-		<key>ig-platform-id</key>
-		<string>0x59120000</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -687,7 +721,7 @@
 			</dict>
 		</array>
 		<key>AppleIntelCPUPM</key>
-		<true/>
+		<false/>
 		<key>AppleRTC</key>
 		<true/>
 		<key>Debug</key>
@@ -697,7 +731,7 @@
 		<key>KernelCpu</key>
 		<false/>
 		<key>KernelLapic</key>
-		<true/>
+		<false/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KernelToPatch</key>
@@ -741,6 +775,106 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				g72M/v//EA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.11.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Replace</key>
+				<data>
+				g72M/v//Gw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				g710////EA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Replace</key>
+				<data>
+				g710////Gw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				g32MEA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.0,10.13.1,10.13.2,10.13.3</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Replace</key>
+				<data>
+				g32MGw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>disable port limit in XHCI kext (credit PMHeart)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				g32UDw+DlwQAAA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.4</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g32UD5CQkJCQkA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext (credit FredWst)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				g32UDw+DlwQ=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.4</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g32UGg+DlwQ=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>HDMI</string>
 				<key>Disabled</key>
 				<false/>
@@ -761,7 +895,7 @@
 				<key>Comment</key>
 				<string>10.12-BCM94352-fvco-darkvoid</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				gflSqgAAdSk=
@@ -779,7 +913,7 @@
 				<key>Comment</key>
 				<string>10.11+-BCM94352-5GHz-US-FCC-darkvoid</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				QYP8/3QsSA==
@@ -797,7 +931,7 @@
 				<key>Comment</key>
 				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				axAAAHUN
@@ -815,7 +949,7 @@
 				<key>Comment</key>
 				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
@@ -833,7 +967,7 @@
 				<key>Comment</key>
 				<string>10.11-BCM94352-CC=#a-Ramalama</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				QYP8/3QsSA==
@@ -851,7 +985,7 @@
 				<key>Comment</key>
 				<string>10.11+-BCM94352-Whitelest-0x4331-iMac14,3-skvo</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
@@ -869,7 +1003,7 @@
 				<key>Comment</key>
 				<string>10.11+-BCM94352-Whitelest-0x4353-MacBoolAir5,2-skvo</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
@@ -887,7 +1021,7 @@
 				<key>Comment</key>
 				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				QYP8/3QsSA==
@@ -905,7 +1039,7 @@
 				<key>Comment</key>
 				<string>10.9-BCM94352-5 GHz</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AVhU
@@ -923,7 +1057,7 @@
 				<key>Comment</key>
 				<string>AirPortBrcm4360 whitelist patch (board-id), 10.12.dp1, credit RehabMan</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				MdtMO33YdRI=
@@ -977,7 +1111,7 @@
 				<key>Comment</key>
 				<string>Skylake APIC fix, discovered by Pike R. Alpha</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				wegQD7bw
@@ -995,7 +1129,7 @@
 				<key>Comment</key>
 				<string>TRIM function for non-Apple SSDs</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				QVBQTEUgU1NEAA==
@@ -1013,7 +1147,7 @@
 				<key>Comment</key>
 				<string>10.11+-BT4LE-Handoff-Hotspot-lisai9093</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				SIX/dEdIiwc=
@@ -1031,7 +1165,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#1</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				weAMBQAQAACJgw==
@@ -1049,7 +1183,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#2</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				D7aMiIIAAACD+QwPhTIBAA==
@@ -1067,7 +1201,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#3</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AMeDpAAAAAAQAABIi0gISA==
@@ -1085,7 +1219,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#4</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				SYnGTYX2dGFBwecMSWP/vg==
@@ -1103,7 +1237,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#5</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				hv8PAABIwegMD7cPgeH/Dw==
@@ -1121,7 +1255,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#6_7</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				icGB4f8PAABIAdFIgfn/DwAAdzs=
@@ -1139,7 +1273,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#8</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				SYHF/w8AAEnB7QxJiwQkSA==
@@ -1157,7 +1291,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#9_10</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				BgIAAEyNuAAQAABMiflIgeEA8P//SYmGGgEAAEmJjiIB
@@ -1177,7 +1311,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#11</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AABJiY4iAQAAugAQAABIKQ==
@@ -1195,7 +1329,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#12</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				yAAAAEkp17gAEAAATYskJA==
@@ -1213,7 +1347,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#13</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				4b+AQBUGTYnWugAQAABFMQ==
@@ -1231,7 +1365,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#14</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				iWTY+EmBxAAQAABJgccA8A==
@@ -1249,7 +1383,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#15</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				Bf8PAABIwegMZvfB/w8PlQ==
@@ -1267,7 +1401,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#16</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				weIIQQ+2wcHgDEQJ0EQJwA==
@@ -1285,7 +1419,7 @@
 				<key>Comment</key>
 				<string>IONVMeFamily Pike R. Alpha Patch#17</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				RYTJD5XAD7bAweAMRAnYRA==
@@ -1333,24 +1467,6 @@
 				<key>Replace</key>
 				<data>
 				Qb4PAAAA61k=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext (100-series)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				g710////EA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g710////Gw==
 				</data>
 			</dict>
 			<dict>
@@ -1423,24 +1539,6 @@
 				<key>Replace</key>
 				<data>
 				em1sLnps
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AEFQUExFIFNTRAA=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.iokit.IOAHCIBlockStorage</string>
-				<key>Replace</key>
-				<data>
-				AAAAAAAAAAAAAAA=
 				</data>
 			</dict>
 		</array>

@@ -4,6 +4,8 @@ list of my hackintosh efi
 
 # 1. i78700k
 
+availabel for 10.13.4
+
 * i7-8700k
 
 * 华擎 Z370m-pro4
@@ -23,6 +25,12 @@ list of my hackintosh efi
 
 # 更新记录
 
+2018-05-24
+
+- 1-i78700k:
+
+    更新 kext、精简 kext、精简 config
+    
 2018-05-08
 
 - 1-i78700k:
