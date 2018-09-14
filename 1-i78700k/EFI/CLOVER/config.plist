@@ -402,7 +402,7 @@
 		<key>#XMPDetection</key>
 		<string>-1</string>
 		<key>Arguments</key>
-		<string>dart=0 kext-dev-mode=1 -disablegfxfirmware</string>
+		<string>-shikigva=1 dart=0 nvda_drv=1 kext-dev-mode=1 -disablegfxfirmware</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -437,9 +437,9 @@
 		<key>#UseARTFrequency</key>
 		<true/>
 		<key>HWPEnable</key>
-		<true/>
+		<false/>
 		<key>UseARTFrequency</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>Devices</key>
 	<dict>
@@ -470,8 +470,10 @@
 		<dict>
 			<key>#ResetHDA</key>
 			<false/>
+			<key>AFGLowPowerState</key>
+			<false/>
 			<key>Inject</key>
-			<string>1</string>
+			<integer>1</integer>
 			<key>ResetHDA</key>
 			<true/>
 		</dict>
@@ -499,7 +501,7 @@
 			<key>FixOwnership</key>
 			<true/>
 			<key>Inject</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
 		<true/>
@@ -641,8 +643,6 @@
 			<key>Tool</key>
 			<false/>
 		</dict>
-		<key>ScreenResolution</key>
-		<string>1920x1080</string>
 		<key>Theme</key>
 		<string>Beauty</string>
 	</dict>
@@ -1541,6 +1541,24 @@
 				em1sLnps
 				</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext for 10.13.6 beta 1 (credit Canvas)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				g32IDw+DpwQ=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g32IGg+DpwQ=
+				</data>
+			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -1620,6 +1638,8 @@
 		<key>InjectKexts</key>
 		<string>Yes</string>
 		<key>InjectSystemID</key>
+		<true/>
+		<key>NvidiaWeb</key>
 		<true/>
 	</dict>
 </dict>
