@@ -1,7 +1,7 @@
 # Hackintosh List - 我的黑苹果 EFI
 
 
-# 1-i78700k -文件夹
+# 1-i7 8700k -文件夹
 
 availabel for 10.13.6
 
@@ -17,6 +17,18 @@ Intel 网卡（主板自带）
 
 ```
 
+# 2-i5 4590 -文件夹
+
+availabel for 10.13.6
+
+```
+i5-4590 
+华硕 b85m 
+HD4600核显（CPU自带）
+8G 1600 DDR3
+声卡（主板自带）
+Intel 网卡（主板自带）
+```
 
 # deskmini
 
