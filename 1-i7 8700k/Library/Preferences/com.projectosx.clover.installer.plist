@@ -3,21 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>CloverRevision</key>
-	<integer>4741</integer>
+	<integer>4920</integer>
 	<key>InstalledThemes</key>
 	<array>
 		<string>embedded</string>
 		<string>random</string>
-		<string>newyear</string>
-		<string>christmas</string>
 	</array>
 	<key>org.clover.bootloader.bootno</key>
 	<true/>
 	<key>org.clover.cloverefi.64.sata</key>
-	<true/>
-	<key>org.clover.special.themes.christmas</key>
-	<true/>
-	<key>org.clover.special.themes.newyear</key>
 	<true/>
 </dict>
 </plist>
