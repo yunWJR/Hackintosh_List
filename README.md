@@ -22,7 +22,7 @@
 
 # 1-i7 8700k 文件夹
 
-availabel for 10.14.4
+availabel for 10.14.5
 
 ## 配置信息
 
@@ -38,6 +38,34 @@ Intel 网卡（主板自带）
 
 ```
 
+
+10.14.5 USB 解除限制补丁
+
+```
+Comment: USB port limit patch #1 10.14.x modify by DalianSky(credit ydeng)
+Name: com.apple.iokit.IOUSBHostFamily
+Find: 83FB0F0F
+Replace: 83FB3F0F
+MatchOS: 10.14.x
+
+Comment: USB port limit patch #2 10.14.x modify by DalianSky(credit PMHeart)
+Name: com.apple.iokit.IOUSBHostFamily
+Find: 83E30FD3
+Replace: 83E33FD3
+MatchOS: 10.14.x
+
+Comment: USB Port limit patch #3 10.14.x modify by DalianSky(credits PMheart)
+Name: com.apple.driver.usb.AppleUSBXHCI
+Find: 83FB0F0F
+Replace: 83FB3F0F
+MatchOS: 10.14,10.14.1,10.14.2,10.14.3
+
+Comment: USB Port limit patch #4 10.14.x modify by DalianSky(credits PMheart)
+Name: com.apple.driver.usb.AppleUSBXHCI
+Find: 83FF0F0F
+Replace: 83FF3F0F
+MatchOS: 10.14.x
+```
 
 
 > 注意：10.13.6 安全更新后，使用 GT750TI 启动不了。解决办法：
