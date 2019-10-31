@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Badruzeus</string>
 	<key>Description</key>
-	<string>An elegant clean looks theme with colorful icons and bright solid background. Version: 1.8</string>
+	<string>A light Clover theme with colorful icons and solid background. Version: 3.0</string>
 	<key>Theme</key>
 	<dict>
 		<key>Background</key>
@@ -24,7 +24,7 @@
 			<key>Scale</key>
 			<integer>5</integer>
 			<key>Show</key>
-			<true/>
+			<false/>
 			<key>Swap</key>
 			<true/>
 		</dict>
@@ -54,29 +54,36 @@
 			<key>CharWidth</key>
 			<integer>10</integer>
 			<key>Path</key>
-			<string>Font_OfficeCodePro_16pt_Green.png</string>
+			<string>Font_FantasqueSans_16pt_TealFx.png</string>
 			<key>Proportional</key>
 			<false/>
 			<key>Type</key>
 			<string>Load</string>
 		</dict>
+		<key>Origination</key>
+		<dict>
+			<key>DesignHeight</key>
+			<integer>1080</integer>
+			<key>DesignWidth</key>
+			<integer>1920</integer>
+		</dict>
 		<key>Selection</key>
 		<dict>
 			<key>Big</key>
-			<string>selection_big.png</string>
+			<string>Selection_big.png</string>
 			<key>ChangeNonSelectedGrey</key>
 			<false/>
 			<key>Color</key>
-			<string>0xABE4DAFF</string>
+			<string>0x1ABC9C24</string>
 			<key>OnTop</key>
 			<false/>
 			<key>Small</key>
-			<string>selection_small.png</string>
+			<string>Selection_small.png</string>
 		</dict>
 	</dict>
 	<key>Version</key>
-	<string>1.8</string>
+	<string>3.0</string>
 	<key>Year</key>
-	<string>2018</string>
+	<string>2019</string>
 </dict>
 </plist>

@@ -1,6 +1,6 @@
 
-Clover EFI installer log - Tue May  7 09:06:37 CST 2019
-Installer version: v2.4k r4920 EFI bootloader
+Clover EFI installer log - Thu Oct 31 14:02:23 CST 2019
+Installer version: v2.5k r5097 EFI bootloader
 ======================================================
 /dev/disk0 (internal):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
@@ -13,8 +13,8 @@ Installer version: v2.4k r4920 EFI bootloader
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:      APFS Container Scheme -                      +159.8 GB   disk1
                                  Physical Store disk0s2
-   1:                APFS Volume mac                     134.9 GB   disk1s1
-   2:                APFS Volume Preboot                 41.6 MB    disk1s2
+   1:                APFS Volume mac                     137.3 GB   disk1s1
+   2:                APFS Volume Preboot                 63.5 MB    disk1s2
    3:                APFS Volume Recovery                1.0 GB     disk1s3
    4:                APFS Volume VM                      2.1 GB     disk1s4
 
@@ -47,12 +47,11 @@ Backing up EFI files
 ======================================================
 Installing BootSectors/BootLoader
 
-Stage 0 - Don't write any of boot0af, boot0md, boot0ss to /Volumes/EFI_WIN2
-Stage 1 - Don't write any of boot1h2, boot1f32alt, boot1xalt to /Volumes/EFI_WIN2
-Stage 2 - Written boot6 (x64) to /Volumes/EFI_WIN2/boot
+Stage 0 - Don't write any of boot0af, boot0md, boot0ss to /Volumes/EFI
+Stage 1 - Don't write any of boot1h2, boot1f32alt, boot1xalt to /Volumes/EFI
 
 Theme 'Clovy' (defined in config.plist) not found !
-Using default theme 'embedded'
+Using default theme 'random'
 ======================================================
 =========== Clover EFI Installation Finish ===========
 ======================================================
